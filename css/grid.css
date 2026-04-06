@@ -853,108 +853,87 @@ html[lang="ar"] .eit-mode-btn {
   flex-shrink: 0;
 }
 
-.legend-swatch.alkali-metal {
-  background-color: #ffcccc;
-}
+/* ── Britannica-inspired element category colors ── */
+.legend-swatch.alkali-metal        { background-color: #ff6b6b; }
+.legend-swatch.alkaline-earth-metal{ background-color: #ffa94d; }
+.legend-swatch.transition-metal    { background-color: #ffd43b; }
+.legend-swatch.post-transition-metal{ background-color: #74c0fc; }
+.legend-swatch.metalloid           { background-color: #63e6be; }
+.legend-swatch.other-nonmetal      { background-color: #a9e34b; }
+.legend-swatch.non-metal           { background-color: #a9e34b; }
+.legend-swatch.halogen             { background-color: #da77f2; }
+.legend-swatch.noble-gas           { background-color: #f783ac; }
+.legend-swatch.lanthanide          { background-color: #ffa8a8; }
+.legend-swatch.actinide            { background-color: #b197fc; }
 
-.legend-swatch.alkaline-earth-metal {
-  background-color: #ffe5cc;
-}
-
-.legend-swatch.transition-metal {
-  background-color: #fff2cc;
-}
-
-.legend-swatch.post-transition-metal {
-  background-color: #d9e2f3;
-}
-
-.legend-swatch.metalloid {
-  background-color: #d1e7dd;
-}
-
-.legend-swatch.other-nonmetal {
-  background-color: #e2f0d9;
-}
-
-.legend-swatch.non-metal {
-  background-color: #e2f0d9;
-}
-
-.legend-swatch.halogen {
-  background-color: #ffffcc;
-}
-
-.legend-swatch.noble-gas {
-  background-color: #e0ccff;
-}
-
-.legend-swatch.lanthanide {
-  background-color: #fce4d6;
-}
-
-.legend-swatch.actinide {
-  background-color: #fddddd;
-}
-
+/* Alkali Metals — vivid coral red */
 .element.alkali-metal {
-  background-color: #ffcccc;
-  color: #5d2e2e;
+  background-color: #ff6b6b;
+  color: #3d0000;
 }
 
+/* Alkaline Earth Metals — warm orange */
 .element.alkaline-earth,
 .element.alkaline-earth-metal {
-  background-color: #ffe5cc;
-  color: #5d402e;
+  background-color: #ffa94d;
+  color: #3d1a00;
 }
 
+/* Transition Metals — golden yellow */
 .element.transition-metal {
-  background-color: #fff2cc;
-  color: #5d522e;
+  background-color: #ffd43b;
+  color: #3d2e00;
 }
 
+/* Post-Transition Metals — sky blue */
 .element.post-transition-metal {
-  background-color: #d9e2f3;
-  color: #2e3a5d;
+  background-color: #74c0fc;
+  color: #002855;
 }
 
+/* Metalloids — mint teal */
 .element.metalloid {
-  background-color: #d1e7dd;
-  color: #2e5d4b;
+  background-color: #63e6be;
+  color: #003d2e;
 }
 
+/* Other Nonmetals — lime green */
 .element.other-nonmetal,
 .element.non-metal,
 .element.polyatomic-nonmetal,
 .element.diatomic-nonmetal {
-  background-color: #e2f0d9;
-  color: #3a5d2e;
+  background-color: #a9e34b;
+  color: #263800;
 }
 
+/* Halogens — violet */
 .element.halogen {
-  background-color: #ffffcc;
-  color: #5d5d2e;
+  background-color: #da77f2;
+  color: #2d003d;
 }
 
+/* Noble Gases — hot pink */
 .element.noble-gas {
-  background-color: #e0ccff;
-  color: #4b2e5d;
+  background-color: #f783ac;
+  color: #3d0022;
 }
 
+/* Lanthanides — salmon rose */
 .element.lanthanide {
-  background-color: #fce4d6;
-  color: #5d3a2e;
+  background-color: #ffa8a8;
+  color: #3d0a0a;
 }
 
+/* Actinides — soft purple */
 .element.actinide {
-  background-color: #fddddd;
-  color: #5d2e2e;
+  background-color: #b197fc;
+  color: #1a0040;
 }
 
 .element.unknown,
 .element.undefined {
-  background-color: #e0e0e0;
-  color: #666;
+  background-color: #ced4da;
+  color: #333;
 }
 
 .element:hover {
