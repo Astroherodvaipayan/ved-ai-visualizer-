@@ -191,7 +191,40 @@ export function initOnboardingFlow() {
     
     <div id="animation-stage" style="display:flex; flex-direction:column; align-items:center;">
         <div class="logo-container" id="onboarding-logo">
-          <img src="logo.svg" class="logo-z" alt="Z">
+          <svg class="logo-z" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
+            <defs>
+              <linearGradient id="ob-petal" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff8f00"/>
+                <stop offset="50%" style="stop-color:#ffc107"/>
+                <stop offset="100%" style="stop-color:#ff6b35"/>
+              </linearGradient>
+              <linearGradient id="ob-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#388e3c"/>
+                <stop offset="100%" style="stop-color:#2e7d32"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(0 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(45 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(90 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(135 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(180 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(225 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(270 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="60" rx="15" ry="35" fill="url(#ob-petal)" transform="rotate(315 100 100)" opacity="0.9"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(22.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(67.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(112.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(157.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(202.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(247.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(292.5 100 100)" opacity="0.95"/>
+            <ellipse cx="100" cy="70" rx="12" ry="25" fill="url(#ob-petal)" transform="rotate(337.5 100 100)" opacity="0.95"/>
+            <circle cx="100" cy="100" r="18" fill="url(#ob-petal)"/>
+            <circle cx="100" cy="100" r="10" fill="#ffc107" opacity="0.85"/>
+            <circle cx="100" cy="100" r="5" fill="#ff8f00"/>
+            <ellipse cx="100" cy="160" rx="8" ry="20" fill="url(#ob-leaf)" transform="rotate(-15 100 100)" opacity="0.7"/>
+            <ellipse cx="100" cy="160" rx="8" ry="20" fill="url(#ob-leaf)" transform="rotate(15 100 100)" opacity="0.7"/>
+          </svg>
           <span class="logo-text">VED-AI Visualizer</span>
         </div>
         
