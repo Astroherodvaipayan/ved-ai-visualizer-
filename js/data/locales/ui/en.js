@@ -601,7 +601,7 @@ export const enUI = {
     "pill2": "⚗️ Equation Balancer",
     "pill3": "📄 Worksheets",
     "cta": "Explore Now",
-    "footer": "🪷 Made for India · v2.0",
+    "footer": "🇮🇳 Made in India, for the World",
     "viewUpdateHistory": "View Update History",
     "authorRole": "Creator & Full Stack Developer",
     "schoolInfo": "Aurora High School · Grade 11 (2027)",

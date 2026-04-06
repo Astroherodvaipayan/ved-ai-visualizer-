@@ -2912,19 +2912,20 @@
   overflow: visible;
 }
 
-/* Left Column: Apple-Style Minimal Design */
+/* Left Column: Centered Indian Design */
 .about-left {
-  flex: 1.15;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   z-index: 1;
   background: #fafafa;
-  border-radius: 32px 0 0 32px;
-  padding: 60px 55px;
+  border-radius: 32px;
+  padding: 60px 40px;
   overflow: visible;
+  text-align: center;
 }
 
 /* Hero 3D Atom Container - Positioned Top Right of Left Panel */
@@ -2943,9 +2944,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   position: relative;
   z-index: 2;
-  max-width: 400px;
+  max-width: 420px;
+  width: 100%;
 }
 
 /* Apple Style Typography */
@@ -2990,6 +2994,7 @@
   line-height: 1.65;
   margin: 0 0 24px 0;
   max-width: 360px;
+  text-align: center;
 }
 
 /* Feature Pills */
@@ -2998,6 +3003,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 28px;
+  justify-content: center;
 }
 
 .feature-pill {
