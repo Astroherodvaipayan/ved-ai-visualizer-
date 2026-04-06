@@ -9,9 +9,9 @@ function ensureDriverTutorialAssets() {
         document.head.appendChild(link);
     }
 
-    if (!document.getElementById('driver-custom-zperiod')) {
+    if (!document.getElementById('driver-custom-vedai')) {
         const style = document.createElement('style');
-        style.id = 'driver-custom-zperiod';
+        style.id = 'driver-custom-vedai';
         style.textContent = `
             .driver-overlay { transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important; }
             .custom-driver-popover {

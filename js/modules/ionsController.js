@@ -1269,7 +1269,7 @@ function openIonModal(ion) {
   }
 
   modal.onclick = (e) => {
-    if (window._zperiodIsDragging) return;
+    if (window._vedaiIsDragging) return;
     if (e.target === modal) {
       modal.classList.remove("active");
       document.body.classList.remove("hide-nav");

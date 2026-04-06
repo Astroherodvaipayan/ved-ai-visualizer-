@@ -2,14 +2,14 @@
 import { t, setLang } from "./langController.js";
 
 /**
- * Enhanced Onboarding Flow for Zperiod 2.0
+ * Enhanced Onboarding Flow for VED-AI Visualizer 2.0
  */
 export function initOnboardingFlow() {
   const overlay = document.createElement("div");
-  overlay.id = "zperiod-onboarding-overlay";
+  overlay.id = "vedai-onboarding-overlay";
   overlay.innerHTML = `
     <style>
-      #zperiod-onboarding-overlay {
+      #vedai-onboarding-overlay {
         position: fixed;
         inset: 0;
         background: #ffffff;
@@ -286,8 +286,8 @@ export function initOnboardingFlow() {
     if (!btn) return;
     const lang = btn.dataset.lang;
     
-    localStorage.setItem("zperiod_welcomed_v2", "true");
-    sessionStorage.setItem("zperiod_lang_transition", "true");
+    localStorage.setItem("vedai_welcomed_v2", "true");
+    sessionStorage.setItem("vedai_lang_transition", "true");
     
     // Smooth seamless transition: Create a temporary white overlay to hide the reload flash
     const transitionOverlay = document.createElement("div");
@@ -304,7 +304,7 @@ export function initOnboardingFlow() {
     requestAnimationFrame(() => {
       transitionOverlay.style.opacity = "1";
       setTimeout(() => {
-        localStorage.setItem("zperiod_lang", lang);
+        localStorage.setItem("vedai_lang", lang);
         window.location.reload();
       }, 450);
     });

@@ -4,7 +4,7 @@
 
 import { translations } from "../data/translations.js";
 
-const STORAGE_KEY = "zperiod_lang";
+const STORAGE_KEY = "vedai_lang";
 const SUPPORTED = ["en", "hi", "kn", "ta", "te"];
 const DEFAULT = "en";
 
@@ -110,7 +110,7 @@ export function setLang(code) {
   if (!SUPPORTED.includes(code) || code === lang) return;
   
   localStorage.setItem(STORAGE_KEY, code);
-  sessionStorage.setItem("zperiod_lang_transition", "true");
+  sessionStorage.setItem("vedai_lang_transition", "true");
 
   // Create an overlay to hide the page before reload
   const overlay = document.createElement("div");
@@ -181,8 +181,8 @@ export function initLangController() {
   }
   document.documentElement.lang = lang;
 
-  if (sessionStorage.getItem("zperiod_lang_transition") === "true") {
-    sessionStorage.removeItem("zperiod_lang_transition");
+  if (sessionStorage.getItem("vedai_lang_transition") === "true") {
+    sessionStorage.removeItem("vedai_lang_transition");
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
     overlay.style.top = "0";

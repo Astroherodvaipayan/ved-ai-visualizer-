@@ -29,7 +29,7 @@ import {
 // Removed Chinese language imports - now supporting Indian languages only
 
 
-// v2 dataset stub — file removed; branches gated by zperiodVersion === 'new' are inert.
+// v2 dataset stub — file removed; branches gated by vedaiVersion === 'new' are inert.
 const elementsData_v2 = [];
 const REPRESENTATIVE_MASS_NUMBERS = [
   1, 4, 7, 9, 11, 12, 14, 16, 19, 20,
@@ -1205,7 +1205,7 @@ function getElementCategory(element) {
 // Tracks the current unit index per metric key so cycling persists during a modal session
 let savedUnits = null;
 try {
-  const stored = localStorage.getItem('zperiod_units');
+  const stored = localStorage.getItem('vedai_units');
   if (stored) savedUnits = JSON.parse(stored);
 } catch (e) {
   // Ignore storage access failures and fall back to default units.
@@ -1214,7 +1214,7 @@ export const l3UnitState = savedUnits || { ie: 0, ea: 0, melt: 0, boil: 0, densi
 
 function saveUnits() {
   try {
-    localStorage.setItem('zperiod_units', JSON.stringify(l3UnitState));
+    localStorage.setItem('vedai_units', JSON.stringify(l3UnitState));
   } catch (e) {
     // Ignore storage access failures so the UI keeps working.
   }
@@ -1669,7 +1669,7 @@ function populateSimplifiedView(element) {
     let typeDisplay = element.category || "Unknown";
     let phaseDisplay = element.phase || "Unknown";
 
-    if (window.zperiodVersion === 'new' && v2Data) {
+    if (window.vedaiVersion === 'new' && v2Data) {
       typeDisplay = v2Data.level1_basic.type || typeDisplay;
       phaseDisplay = v2Data.level1_basic.phaseAtSTP || phaseDisplay;
     }
@@ -1704,7 +1704,7 @@ function populateSimplifiedView(element) {
         .querySelectorAll(".ion-item")
         .forEach((item) => item.remove());
       let commonIonsText = finallyElementData.level1_basic?.commonIons || "";
-      if (window.zperiodVersion === 'new' && v2Data) {
+      if (window.vedaiVersion === 'new' && v2Data) {
         commonIonsText = v2Data.level1_basic.commonIons || "";
       }
       const langCode = getLang();
@@ -1785,7 +1785,7 @@ function populateSimplifiedView(element) {
   );
   if (yellowCard) {
     let valenceStr = "";
-    if (window.zperiodVersion === 'new' && v2Data) {
+    if (window.vedaiVersion === 'new' && v2Data) {
       valenceStr = v2Data.level1_basic.valenceElectrons || "—";
     } else if (finallyElementData.level1_basic?.valenceElectrons !== undefined && finallyElementData.level1_basic?.valenceElectrons !== null) {
       const valence = finallyElementData.level1_basic.valenceElectrons;
@@ -1795,7 +1795,7 @@ function populateSimplifiedView(element) {
     }
 
     let avgMass = finallyElementData.level2_atomic?.mass?.highSchool || "—";
-    if (window.zperiodVersion === 'new' && v2Data && v2Data.level2_atomic.mass.standard) {
+    if (window.vedaiVersion === 'new' && v2Data && v2Data.level2_atomic.mass.standard) {
       avgMass = v2Data.level2_atomic.mass.standard;
     }
     const representativeMass = getRepresentativeMassNumber(element.number);
@@ -1803,7 +1803,7 @@ function populateSimplifiedView(element) {
       ? representativeMass - element.number
       : "—";
     let level2Config = finallyElementData.level3_properties?.electronic?.configuration || "—";
-    if (window.zperiodVersion === 'new' && v2Data && v2Data.level3_properties?.electronic?.configuration) {
+    if (window.vedaiVersion === 'new' && v2Data && v2Data.level3_properties?.electronic?.configuration) {
       level2Config = v2Data.level3_properties.electronic.configuration;
     }
 
@@ -1841,7 +1841,7 @@ function populateSimplifiedView(element) {
                   ? finallyElementData.level2_atomic.mostStableIsotopes
                   : [];
 
-      if (window.zperiodVersion === 'new' && v2Data) {
+      if (window.vedaiVersion === 'new' && v2Data) {
         isotopesToDisplay = v2Data.level2_atomic.naturalIsotopes || [];
       }
       isotopesToDisplay.forEach((iso) => {
@@ -1886,7 +1886,7 @@ function populateSimplifiedView(element) {
     const configHero = blueCard.querySelector(".config-hero");
     if (configHero) {
       let config = finallyElementData.level3_properties?.electronic?.configuration || "—";
-      if (window.zperiodVersion === 'new' && v2Data && v2Data.level3_properties.electronic.configuration) {
+      if (window.vedaiVersion === 'new' && v2Data && v2Data.level3_properties.electronic.configuration) {
         config = v2Data.level3_properties.electronic.configuration;
       }
       configHero.innerHTML = formatElectronConfigurationHtml(config);
@@ -1895,7 +1895,7 @@ function populateSimplifiedView(element) {
     if (oxidationContainer) {
       oxidationContainer.innerHTML = "";
       let statesObj = finallyElementData.level3_properties?.electronic?.oxidationStates || { common: [], possible: [] };
-      if (window.zperiodVersion === 'new' && v2Data) {
+      if (window.vedaiVersion === 'new' && v2Data) {
         const v2Ox = v2Data.level3_properties?.electronic?.oxidationStates;
         if (v2Ox && ((v2Ox.common && v2Ox.common.length > 0) || (v2Ox.possible && v2Ox.possible.length > 0))) {
           statesObj = v2Ox;
@@ -1952,7 +1952,7 @@ function populateSimplifiedView(element) {
     let ar = finallyElementData.level3_properties?.physical?.atomicRadius || "";
     let sh = finallyElementData.level3_properties?.physical?.specificHeat || "";
 
-    if (window.zperiodVersion === 'new' && v2Data) {
+    if (window.vedaiVersion === 'new' && v2Data) {
       en = v2Data.level3_properties.physical.electronegativity ?? en;
       ie = v2Data.level3_properties.physical.firstIonization || ie;
       den = v2Data.level3_properties.physical.density || den;
@@ -2073,7 +2073,7 @@ function populateSimplifiedView(element) {
       });
     });
     let year = finallyElementData.level4_history_stse?.history?.discoveryYear || "—";
-    if (window.zperiodVersion === 'new' && v2Data && v2Data.level4_history_stse.history.discoveryYear) {
+    if (window.vedaiVersion === 'new' && v2Data && v2Data.level4_history_stse.history.discoveryYear) {
       year = v2Data.level4_history_stse.history.discoveryYear;
     }
 
@@ -2082,7 +2082,7 @@ function populateSimplifiedView(element) {
     let discoveredBy = finallyElementData.level4_history_stse?.history?.discoveredBy || "—";
     let namedBy = finallyElementData.level4_history_stse?.history?.namedBy || "—";
 
-    if (window.zperiodVersion === 'new' && v2Data) {
+    if (window.vedaiVersion === 'new' && v2Data) {
       discoveredBy = v2Data.level4_history_stse.history.discoveredBy || "—";
       namedBy = v2Data.level4_history_stse.history.namedBy || "—";
     }
@@ -2113,7 +2113,7 @@ function populateSimplifiedView(element) {
         const stseContent = findContentDiv(stseCell, "stse");
 
         let stseVal = (finallyElementData.level4_history_stse?.stseContext || []).join("; ");
-        if (window.zperiodVersion === 'new' && v2Data) {
+        if (window.vedaiVersion === 'new' && v2Data) {
           stseVal = v2Data.level4_history_stse.stseContext && v2Data.level4_history_stse.stseContext.length > 0
             ? v2Data.level4_history_stse.stseContext.join(" • ")
             : "";
@@ -2141,7 +2141,7 @@ function populateSimplifiedView(element) {
         const usesContent = findContentDiv(usesCell, "uses");
 
         let usesVal = (finallyElementData.level4_history_stse?.commonUses || []).join(", ") || "—";
-        if (window.zperiodVersion === 'new' && v2Data) {
+        if (window.vedaiVersion === 'new' && v2Data) {
           usesVal = v2Data.level4_history_stse.commonUses && v2Data.level4_history_stse.commonUses.length > 0
             ? v2Data.level4_history_stse.commonUses.join(", ")
             : "—";
@@ -2164,7 +2164,7 @@ function populateSimplifiedView(element) {
         const hazardsContent = findContentDiv(hazardsCell, "hazards");
 
         let hazardsVal = (finallyElementData.level4_history_stse?.hazards || []).join(", ") || "—";
-        if (window.zperiodVersion === 'new' && v2Data) {
+        if (window.vedaiVersion === 'new' && v2Data) {
           hazardsVal = v2Data.level4_history_stse.hazards && v2Data.level4_history_stse.hazards.length > 0
             ? v2Data.level4_history_stse.hazards.join(", ")
             : "—";
@@ -2999,7 +2999,7 @@ export function initModalUI() {
   }
 
   modal.addEventListener("click", (e) => {
-    if (window._zperiodIsDragging) return;
+    if (window._vedaiIsDragging) return;
     if (e.target === modal) {
       closeElementModal();
     }

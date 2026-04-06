@@ -42,7 +42,7 @@ function isRealMobileDevice() {
 // ========================================
 // Global Dragging State (used to prevent accidental panel close)
 // ========================================
-window._zperiodIsDragging = false;
+window._vedaiIsDragging = false;
 (function initGlobalDragTracking() {
   let pointerDown = false;
   let startX = 0, startY = 0;
@@ -57,17 +57,17 @@ window._zperiodIsDragging = false;
     const dx = e.clientX - startX;
     const dy = e.clientY - startY;
     if (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD) {
-      window._zperiodIsDragging = true;
+      window._vedaiIsDragging = true;
     }
   }, true);
   document.addEventListener('pointerup', () => {
     pointerDown = false;
     // Delay clearing drag state so click handlers see it
-    setTimeout(() => { window._zperiodIsDragging = false; }, 80);
+    setTimeout(() => { window._vedaiIsDragging = false; }, 80);
   }, true);
   document.addEventListener('pointercancel', () => {
     pointerDown = false;
-    setTimeout(() => { window._zperiodIsDragging = false; }, 80);
+    setTimeout(() => { window._vedaiIsDragging = false; }, 80);
   }, true);
   window.addEventListener('blur', () => {
     pointerDown = false;
@@ -79,8 +79,8 @@ window._zperiodIsDragging = false;
 // Global Animation Speed State
 // ========================================
 const savedAnimationState = getSavedAnimationState();
-window._zperiodAnimPaused = savedAnimationState.paused;
-window._zperiodAnimSpeed = savedAnimationState.speed;
+window._vedaiAnimPaused = savedAnimationState.paused;
+window._vedaiAnimSpeed = savedAnimationState.speed;
 
 // ========================================
 // Lazy Script/Module Loaders (performance)
@@ -138,9 +138,9 @@ function initWelcomeModal() {
   const CURRENT_VERSION = "2.0.1";
   
   // Cache busting force reload (one-time for each release)
-  const lastForced = localStorage.getItem("zperiod_force_refresh");
+  const lastForced = localStorage.getItem("vedai_force_refresh");
   if (lastForced !== CURRENT_VERSION) {
-    localStorage.setItem("zperiod_force_refresh", CURRENT_VERSION);
+    localStorage.setItem("vedai_force_refresh", CURRENT_VERSION);
     // Add version to URL and reload to bypass disk cache once
     const url = new URL(window.location.href);
     url.searchParams.set('v', CURRENT_VERSION);
@@ -164,14 +164,14 @@ function initWelcomeModal() {
     welcomeModal.classList.remove("active");
     document.body.classList.remove("welcome-active");
     document.body.classList.remove("hide-nav");
-    localStorage.setItem("zperiod_welcomed", "true");
+    localStorage.setItem("vedai_welcomed", "true");
     if (window._heroCleanup) window._heroCleanup();
   }
 
   // ===== Changelog helpers removed =====
   
   // ===== Decide which to show =====
-  const hasVisited = localStorage.getItem("zperiod_welcomed");
+  const hasVisited = localStorage.getItem("vedai_welcomed");
 
   if (!hasVisited) {
     // First-time visitor → show welcome
@@ -188,7 +188,7 @@ function initWelcomeModal() {
   if (startBtn) startBtn.addEventListener("click", closeWelcome);
   if (welcomeModal) {
     welcomeModal.addEventListener("click", (e) => {
-      if (window._zperiodIsDragging) return;
+      if (window._vedaiIsDragging) return;
       if (e.target === welcomeModal) closeWelcome();
     });
   }
@@ -472,7 +472,7 @@ function initNavResponsive() {
 }
 
 // Global Data Version State
-window.zperiodVersion = 'old';
+window.vedaiVersion = 'old';
 
 function bootstrapApp() {
   initLangController();
@@ -484,13 +484,13 @@ function bootstrapApp() {
 
   // Release-gated onboarding: force-show the intro animation once per release.
   const ONBOARDING_VERSION = "2.0.1";
-  const seenOnboardingVersion = localStorage.getItem("zperiod_onboarding_seen_version");
+  const seenOnboardingVersion = localStorage.getItem("vedai_onboarding_seen_version");
   if (seenOnboardingVersion !== ONBOARDING_VERSION) {
-    localStorage.setItem("zperiod_onboarding_seen_version", ONBOARDING_VERSION);
-    localStorage.removeItem("zperiod_welcomed_v2");
+    localStorage.setItem("vedai_onboarding_seen_version", ONBOARDING_VERSION);
+    localStorage.removeItem("vedai_welcomed_v2");
   }
 
-  if (!localStorage.getItem("zperiod_welcomed_v2")) {
+  if (!localStorage.getItem("vedai_welcomed_v2")) {
     initOnboardingFlow();
     return;
   }
